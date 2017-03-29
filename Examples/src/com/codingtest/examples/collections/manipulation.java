@@ -7,6 +7,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.google.common.collect.ArrayListMultimap;
+
 
 /**
  * Created by ckremer on 3/29/2017.
@@ -45,6 +47,21 @@ public class manipulation {
         Collections.reverse(combined);
         System.out.println("Combined collection: size = " + combined.size());
         combined.forEach(System.out::println);
+
+        // Collection that handles duplicate keys
+        // This collection handles duplicate entries for the keys easily.
+        // Google commons code is pretty standard.
+        ArrayListMultimap<Integer, String> mmap = ArrayListMultimap.create();
+        mmap.put(1, "Apple");
+        mmap.put(2, "Boy");
+        mmap.put(3, "Castle");
+        mmap.put(4, "Dragon");
+        mmap.put(5, "Extra");
+        // Add duplicate key
+        mmap.put(4, "Doppleganger");
+
+        System.out.println("KVP Set: size = " + mmap.size());
+        System.out.println(mmap);
 
     }
 
